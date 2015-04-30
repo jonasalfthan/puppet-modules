@@ -1,7 +1,7 @@
 class anttiproject(
 $projectname = 'anttiproject',
 $first_time_setup= 'false', 
-$serverName = 'ec2-52-16-150-248.eu-west-1.compute.amazonaws.com') {
+$serverName = 'startuple.net') {
 
 
   if versioncmp($::puppetversion,'3.6.1') >= 0 {
