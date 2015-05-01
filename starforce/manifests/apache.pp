@@ -1,4 +1,4 @@
-class anttiproject::apache(
+class starforce::apache(
 $projectname = '',
 $serverName = '') {
 
@@ -25,7 +25,7 @@ $serverName = '') {
 	ensure => 'present',
         owner  => 'root',
         group  => 'root',
-	content => template("anttiproject/vhostconfig.erb"),
+	content => template("starforce/vhostconfig.erb"),
  	require => Package['httpd'],
   }
 }

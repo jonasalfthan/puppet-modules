@@ -1,4 +1,4 @@
-class anttiproject::webdev(
+class starforce::webdev(
 $projectname = '',
 $serverName = '') {
 

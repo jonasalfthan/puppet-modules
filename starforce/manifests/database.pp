@@ -1,7 +1,7 @@
-class anttiproject::database(
-$projectname = 'anttiproject',
+class starforce::database(
+$projectname = 'starforce',
 $serverName = '',
-$databaseName = 'startuple'
+$databaseName = 'starforce'
 ) {
 
   class { 'postgresql::server':
@@ -13,11 +13,11 @@ $databaseName = 'startuple'
   }
   ->
   postgresql::server::db { "$databaseName":
-    user     => 'startuple',
-    password =>  postgresql_password('startuple', 'isghwe123d')
+    user     => 'starforce',
+    password =>  postgresql_password('starforce', 'iswiehf3823d')
   }
 
 }
 
 
-include anttiproject::database
+include starforce::database

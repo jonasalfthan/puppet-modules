@@ -1,5 +1,5 @@
-class anttiproject::git(
-$projectname = 'anttiproject',
+class starforce::git(
+$projectname = 'starforce',
 $first_time_setup= 'true', 
 ) {
 
@@ -34,7 +34,7 @@ $first_time_setup= 'true',
   }
   
   file {"/opt/git/$projectname-fe.git/hooks/post-receive":
-    content => template("anttiproject/git-post-receive.erb"),
+    content => template("starforce/git-post-receive.erb"),
     mode => 0777,
   }
 
@@ -53,4 +53,4 @@ $first_time_setup= 'true',
 
 }
 
-include anttiproject::git
+include starforce::git

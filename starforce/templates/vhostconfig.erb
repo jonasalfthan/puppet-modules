@@ -1,10 +1,10 @@
 # file: /etc/http/conf.d/example.conf
 # vhost: example.org *.example.org
 
-Listen 80
+#Listen 80
 
-ProxyPass /api  http://127.0.0.1:8090/api retry=0 timeout=5
-ProxyPassReverse /api http://127.0.0.1:8090/api
+ProxyPass /api  http://127.0.0.1:8080 retry=0 timeout=5
+ProxyPassReverse /api http://127.0.0.1:8080
 
 <VirtualHost *:80>
   ServerName <%= @serverName %>

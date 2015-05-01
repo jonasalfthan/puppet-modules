@@ -2,6 +2,6 @@
 
 #include testproject::params
 #include ::testproject2::jonas
-include anttiproject#class {'testproject':}
+include starforce#class {'testproject':}
 #class {'testproject::subclass':}
 #class {'jonas':}

@@ -1,5 +1,5 @@
-class anttiproject::application(
-$projectname = 'anttiproject',
+class starforce::application(
+$projectname = 'starforce',
 $serverName = '') {
 
 
@@ -32,7 +32,7 @@ $serverName = '') {
     ensure => 'present',
     owner  => 'root',
     group  => 'root',
-    content => template("anttiproject/be-deployscript.erb"),
+    content => template("starforce/be-deployscript.erb"),
     mode  => '0700'
   }
 
@@ -40,7 +40,7 @@ $serverName = '') {
     ensure => 'present',
     owner  => 'root',
     group  => 'root',
-    content => template("anttiproject/be-init-d.erb"),
+    content => template("starforce/be-init-d.erb"),
     mode  => '0700'
   }
 
@@ -56,4 +56,4 @@ $serverName = '') {
 }
 
 
-#include anttiproject::users
+#include starforce::users

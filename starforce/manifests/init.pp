@@ -1,7 +1,7 @@
-class anttiproject(
-$projectname = 'startuple',
+class starforce(
+$projectname = 'starforce',
 $first_time_setup= 'true', 
-$serverName = 'startuple.net') {
+$serverName = 'starforce.se') {
 
 
   if versioncmp($::puppetversion,'3.6.1') >= 0 {
@@ -13,26 +13,26 @@ $serverName = 'startuple.net') {
     }
   }
 
-  class{'anttiproject::users':
+  class{'starforce::users':
         projectname => $projectname,
  	serverName => $serverName 
   }
   
-  class{'anttiproject::git':
+  class{'starforce::git':
 	projectname => $projectname,
 	first_time_setup => $first_time_setup, 
   }
   
-  class{'anttiproject::apache':
+  class{'starforce::apache':
         projectname => $projectname,
         serverName => $serverName
   }
 
-  class{'anttiproject::application':
+  class{'starforce::application':
         projectname => $projectname,
         serverName => $serverName
   }
- #class{'anttiproject::webdev':
+ #class{'starforce::webdev':
   #      projectname => $projectname,
   #      serverName => $serverName
   #}
@@ -42,4 +42,4 @@ $serverName = 'startuple.net') {
 
 
 
-#include anttiproject
+#include starforce

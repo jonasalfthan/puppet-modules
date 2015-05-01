@@ -1,5 +1,5 @@
-class anttiproject::users(
-$projectname = 'anttiproject',
+class starforce::users(
+$projectname = 'starforce',
 $serverName = '') {
 
   group { $projectname :
@@ -35,4 +35,4 @@ $serverName = '') {
 }
 
 
-#include anttiproject::users
+#include starforce::users
