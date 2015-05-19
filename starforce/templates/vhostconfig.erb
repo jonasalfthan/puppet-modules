@@ -3,12 +3,13 @@
 
 #Listen 80
 
-ProxyPass /api  http://127.0.0.1:8080 retry=0 timeout=5
-ProxyPassReverse /api http://127.0.0.1:8080
 
 <VirtualHost *:80>
   ServerName <%= @serverName %>
-  #ServerAlias *.example.org
+  ProxyPass /api  http://127.0.0.1:8080 retry=0 timeout=5
+  ProxyPassReverse /api http://127.0.0.1:8080
+ 
+ #ServerAlias *.example.org
   #ServerAdmin webmaster@example.org
   ErrorLog /var/log/httpd/<%= @projectname %>.err
   CustomLog /var/log/httpd/<%= @projectname %>.log combined
