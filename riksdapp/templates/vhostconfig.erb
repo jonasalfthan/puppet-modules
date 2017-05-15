@@ -1,0 +1,21 @@
+# file: /etc/http/conf.d/example.conf
+# vhost: example.org *.example.org
+
+#Listen 80
+
+
+<VirtualHost *:80>
+  ServerName <%= @serverName %>
+  ProxyPass /api  http://127.0.0.1:8080 retry=0 timeout=5
+  ProxyPassReverse /api http://127.0.0.1:8080
+ 
+ #ServerAlias *.example.org
+  #ServerAdmin webmaster@example.org
+  ErrorLog /var/log/httpd/<%= @projectname %>.err
+  CustomLog /var/log/httpd/<%= @projectname %>.log combined
+  DocumentRoot /var/www/html/<%= @projectname %>/bin
+#  <Directory "/var/www/example.org">
+#    Order allow,deny
+#    Allow from all
+#  </Directory>
+</VirtualHost>

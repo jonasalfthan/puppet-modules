@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# checking out and compiling the project inside tmp. then copying the binary to the /use/<%= @projectname %>-be folder
+CHECKOUT_FOLDER="/tmp/<%= @projectname %>-be"
+DEPLOY_FOLDER="/usr/<%= @projectname %>-be"
+
+/usr/bin/git --work-tree=$CHECKOUT_FOLDER --git-dir=/opt/git/<%= @projectname %>-be.git checkout -f
+
+service <%= @projectname %>-be stop
+(cd $CHECKOUT_FOLDER && mvn clean package && cp $CHECKOUT_FOLDER/target/*.jar $DEPLOY_FOLDER/ -f && cp $CHECKOUT_FOLDER/config.yaml $DEPLOY_FOLDER )
+service <%= @projectname %>-be start
+tail -f /var/log/<%= @projectname %>-be.log
+
