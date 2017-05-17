@@ -1,6 +1,6 @@
 class riksdapp::git(
 $projectname = 'riksdapp',
-$first_time_setup= 'true', 
+$first_time_setup= 'false', 
 ) {
 
   package {"git":
@@ -8,14 +8,13 @@ $first_time_setup= 'true',
   }
 
   
-  #file { ["/opt/git", "/opt/git/$projectname-be.git, /opt/git/$projectname-fe.git"]:
-  #  ensure => "directory",
-  #  owner  => 'git',
-  #  group  => $projectname,
-  #  mode   => 0774,
-  #  require => Package['git']
-  #}
-
+#  file { ["/opt/git", "/opt/git/$projectname-be.git, /opt/git/$projectname-fe.git"]:
+#    ensure => "directory",
+#    owner  => 'git',
+#    group  => $projectname,
+#    mode   => '0774',
+#    require => Package['git']
+#  }
 
   if $first_time_setup == 'true'{
    exec { "create new git repo for main project":
@@ -33,10 +32,10 @@ $first_time_setup= 'true',
 
   }
   
-  file {"/opt/git/$projectname-fe.git/hooks/post-receive":
-    content => template("riksdapp/git-post-receive.erb"),
-    mode => 0777,
-  }
+#  file {"/opt/git/$projectname-fe.git/hooks/post-receive":
+#    content => template("riksdapp/git-post-receive.erb"),
+#    mode => '0777',
+#  }
 
   # ugly quickfix for allowing diffrent users to commit on their own accounts
   cron { "make sure everyone can write to project repo":

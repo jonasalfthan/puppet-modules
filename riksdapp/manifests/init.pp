@@ -28,14 +28,10 @@ $serverName = 'riksdapp-app') {
         serverName => $serverName
   }
 
-  class{'riksdapp::application':
-        projectname => $projectname,
-        serverName => $serverName
-  }
 }
 
 
 
 
 
-#include riksdapp
+include riksdapp
