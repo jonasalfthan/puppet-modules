@@ -6,16 +6,14 @@ $first_time_setup= 'true',
   package {"git":
  	ensure => present,
   }
-
   
-  #file { ["/opt/git", "/opt/git/$projectname-be.git, /opt/git/$projectname-fe.git"]:
-  #  ensure => "directory",
-  #  owner  => 'git',
-  #  group  => $projectname,
-  #  mode   => 0774,
-  #  require => Package['git']
-  #}
-
+  file { ["/opt/git", "/opt/git/$projectname-be.git", "/opt/git/$projectname-fe.git"]:
+    ensure => "directory",
+    owner  => 'git',
+    group  => $projectname,
+    mode   => "0774",
+    require => Package['git']
+  }
 
   if $first_time_setup == 'true'{
    exec { "create new git repo for main project":
@@ -35,7 +33,7 @@ $first_time_setup= 'true',
   
   file {"/opt/git/$projectname-fe.git/hooks/post-receive":
     content => template("gonogo/git-post-receive.erb"),
-    mode => 0777,
+    mode => "0777",
   }
 
   # ugly quickfix for allowing diffrent users to commit on their own accounts

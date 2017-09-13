@@ -5,6 +5,7 @@ $serverName = '') {
   group { $projectname :
         ensure => present,
   }
+
   user { "jonas":
         ensure     => present,
 	password   => "antti",
@@ -15,6 +16,17 @@ $serverName = '') {
         shell      => "/bin/bash",
         require    => Group[$projectname]
   }
+  user { "gonogo":
+        ensure     => present,
+        password   => "antti",
+        managehome => true,
+        groups     => [$projectname],
+        gid        => $projectname,
+        membership => minimum,
+        shell      => "/bin/bash",
+        require    => Group[$projectname]
+  }
+
   user { "jonatan":
         ensure     => present,
         managehome => true,

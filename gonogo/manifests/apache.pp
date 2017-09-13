@@ -17,7 +17,7 @@ $serverName = '') {
   	ensure => "directory",
     	owner  => "apache",
     	group  => $projectname,
-    	mode   => 0664,
+    	mode   => "0664",
   	require => Package['httpd'] 
   }
 

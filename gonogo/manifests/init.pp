@@ -13,20 +13,25 @@ $serverName = 'gonogo-app') {
     }
   }
 
-  class{'gonogo::users':
-        projectname => $projectname,
- 	serverName => $serverName 
+  class{'gonogo::database':
+    projectname => $projectname,
+    serverName => $serverName
   }
+
+  #class{'gonogo::users':
+  #      projectname => $projectname,
+# 	serverName => $serverName 
+#  }
   
   class{'gonogo::git':
 	projectname => $projectname,
 	first_time_setup => $first_time_setup, 
   }
   
-  class{'gonogo::apache':
-        projectname => $projectname,
-        serverName => $serverName
-  }
+#  class{'gonogo::apache':
+#        projectname => $projectname,
+#        serverName => $serverName
+#  }
 
   class{'gonogo::application':
         projectname => $projectname,

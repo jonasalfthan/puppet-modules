@@ -8,7 +8,7 @@ $serverName = '') {
     ensure => "directory",
     owner  => 'root',
     group  => $projectname,
-    mode   => 0660,
+    mode   => "0660",
   }
 
   # i put the uploaded files inside:
@@ -16,7 +16,7 @@ $serverName = '') {
     ensure => "directory",
     owner  => 'root',
     group  => $projectname,
-    mode   => 0660,
+    mode   => "0660",
   }
 
   # for checking out project to build it on the server.
@@ -24,7 +24,7 @@ $serverName = '') {
     ensure => "directory",
     owner  => 'root',
     group  => $projectname,
-    mode   => 0660,
+    mode   => "0660",
   }
 
 
